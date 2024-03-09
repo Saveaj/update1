@@ -1,0 +1,160 @@
+
+<!-- THIS PART IS FROM THE SAMPLE OF CART NA CODE -->
+                <div class="col-sm-4 col-md-4" >
+                    <form method="post" action="pos.php?action=add&id=<?php echo $product['id']; ?>">
+                        <div class="products">
+                            <h4 class="text-info"><?php echo $product['name']; ?></h4>
+                            <h4>$ <?php echo $product['price']; ?></h4>
+                            <input type="text" name="quantity" class="form-control" value="1" />
+                            <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
+                            <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
+                            <input type="submit" name="addpos" style="margin-top:5px;" class="btn btn-info"
+                                   value="Add to Cart" />
+                        </div>
+                    </form>
+                </div>
+<!-- END OF THIS PART IS FROM THE SAMPLE OF CART NA CODE -->
+
+<! -- PART NG MGA VAT SA POS kung hingiin ng kuya arenas -->
+//</div>
+          <div class="form-group row mb-2">
+
+            <div class="col-sm-5 text-left text-primary py-2">
+              <h6>
+                Less VAT
+              </h6>
+            </div>
+
+            <div class="col-sm-7">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">₱</span>
+                </div>
+                <input type="text" class="form-control text-right " value="<?php echo number_format($lessvat, 2); ?>" readonly name="lessvat">
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group row mb-2">
+
+            <div class="col-sm-5 text-left text-primary py-2">
+              <h6>
+                Net of VAT
+              </h6>
+            </div>
+            
+             <div class="col-sm-7">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">₱</span>
+                </div>
+                <input type="text" class="form-control text-right " value="<?php echo number_format($netvat, 2); ?>" readonly name="netvat">
+              </div>
+            </div>
+            //
+          </div> 
+          <div class="form-group row mb-2">
+
+            <div class="col-sm-5 text-left text-primary py-2">
+              <h6>
+                Add VAT
+              </h6>
+            </div>
+
+            <div class="col-sm-7">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">₱</span>
+                </div>
+                <input type="text" class="form-control text-right " value="<?php echo number_format($addvat, 2); ?>" readonly name="addvat">
+              </div>
+            </div>
+
+          </div>
+          <div class="form-group row text-left mb-2">
+
+            <div class="col-sm-5 text-primary">
+              <h6 class="font-weight-bold py-2">
+                Total
+              </h6>
+            </div>
+
+            <div class="col-sm-7">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">₱</span>
+                </div>
+                <input type="text" class="form-control text-right " value="<?php echo number_format($total, 2); ?>" readonly name="total">
+              </div>
+            </div>
+
+            <! -- END -- >
+
+
+            ON HAND (removed)
+            (invedit)echo '<td>'. $row['ON_HAND'].'</td>';
+
+           (pro add) !-- <div class="form-group">
+                              <input type="number"  min="1" max="999999999" class="form-control" placeholder="On Hand" name="onhand" required>
+                            </div> 
+                            -->
+
+            (pro transact) $oh = $_POST['onhand']; 
+            ,{$oh}
+              (pos_transact)
+             //$lessvat = $_POST['lessvat'];
+              //$netvat = $_POST['netvat'];
+              //$addvat = $_POST['addvat'];
+
+---------
+                unset($_SESSION['pointofsale']);
+                    echo'
+                    <script type="text/javascript">
+                    alert("Insufficient Inventory");
+                    window.location = "pos.php";
+                  </script>
+                    ';
+                    exit();
+                  }                    
+                break;
+              }
+                    
+                    unset($_SESSION['pointofsale']);
+               ?>
+              <script type="text/javascript">
+                alert("Success.");
+                window.location = "pos.php";
+              </script>
+          </div>
+
+
+           // Add the data to the report
+  $pdf->Cell(35,10,'Start Date',1,0,'C');
+$pdf->Cell(35,10,$start_date,1,1,'C');
+$pdf->Cell(35,10,'End Date',1,0,'C');
+$pdf->Cell(35,10,$end_date,1,1,'C');
+ A web-based platform that will provide a centralized database, 
+        that allows you to generate reports automatically, provide a point of sales system, 
+        and recommend what specific product you should produce in a peak season. T
+        his will be able to track sales and available inventory, 
+        tell a shopkeeper whenever it's time to replace or how much to consider purchasing, 
+        and completely remove paper work, human errors, and manual delays.
+
+
+
+        LIne graph statistics
+        < <div class="col-sm-6 mt-3">
+                <div class="card">
+                    <h5 class="text-center pt-2">Monthly Profits</h5>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+
+
+            // Query for line graph
+$sql = $db->query("
+    SELECT *, MONTH(DATE) AS MONTH, SUM(QTY) AS TOTAL_QTY
+    FROM `transaction_details`
+    WHERE YEAR(DATE) = YEAR(CURRENT_TIMESTAMP())
+    GROUP BY MONTH(DATE)
+");
