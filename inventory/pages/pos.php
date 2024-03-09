@@ -77,21 +77,7 @@ function pre_r($array){
                   </div>
                         <!-- /.panel-heading -->
                         <div class="card-body">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs">
-                              <li class="nav-item">
-                                <a class="nav-link" href="#" data-target="#cakes" data-toggle="tab">Rice wholesale</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#cookies" data-target="#cookies" data-toggle="tab">Frozen Goods</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#cupcakes" data-toggle="tab">Rice Regular</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#pastries" data-toggle="tab">Others</a>
-                              </li>
-                            </ul>
+                            
 
 <!-- TAB PANE AREA - ANG UNOD KA TABS ARA SA TABPANE.PHP -->
 <?php include 'postabpane.php'; ?>
